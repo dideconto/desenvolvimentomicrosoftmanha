@@ -1,6 +1,6 @@
 ﻿Refatoração
 
-[ ] Separação do projeto em camadas - MVC
-[ ] Separar as funcionalidades em views diferentes
-[ ] Separar o método de validação de CPF
-[ ] Criar uma camada de manipulação dos dados
+[x] Separação do projeto em camadas - MVC
+[x] Separar as funcionalidades em views diferentes
+[x] Separar o método de validação de CPF
+[x] Criar uma camada de manipulação dos dados
