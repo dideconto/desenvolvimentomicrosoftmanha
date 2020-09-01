@@ -12,7 +12,6 @@ namespace VendasConsole.Models
         public double Preco { get; set; }
         public int Quantidade { get; set; }
         public DateTime CriadoEm { get; set; }
-
         public override string ToString()
         {
             return $"Nome: {Nome } | Preço: {Preco} | Quantidade: {Quantidade} | Criado em: {CriadoEm}";

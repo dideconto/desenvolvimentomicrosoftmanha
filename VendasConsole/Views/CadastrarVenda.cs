@@ -12,6 +12,7 @@ namespace VendasConsole.Views
             Cliente c = new Cliente();
             Vendedor v = new Vendedor();
             Produto p = new Produto();
+            ItemVenda iv = new ItemVenda();
 
             Console.WriteLine(" ---- CADASTRAR VENDA ---- \n");
             Console.WriteLine("Digite o CPF do cliente: ");
@@ -28,21 +29,31 @@ namespace VendasConsole.Views
                 {
                     venda.Vendedor = v;
 
-                    Console.WriteLine("Digite o nome do produto: ");
-                    p.Nome = Console.ReadLine();
-                    p = ProdutoDAO.BuscarPorNome(p.Nome);
-                    if (p != null)
+                    do
                     {
-                        venda.Produto = p;
-                        Console.WriteLine("Digite a quantidade do produto: ");
-                        venda.Quantidade = Convert.ToInt32(Console.ReadLine());
-                        VendaDAO.Cadastrar(venda);
-                        Console.WriteLine("\nVenda cadastrada com sucesso!!!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nEsse produto não existe!!!");
-                    }
+                        iv = new ItemVenda();
+                        p = new Produto();
+                        Console.Clear();
+                        Console.WriteLine(" ---- ADICIONAR ITEM ---- \n");
+                        Console.WriteLine("Digite o nome do produto: ");
+                        p.Nome = Console.ReadLine();
+                        p = ProdutoDAO.BuscarPorNome(p.Nome);
+                        if (p != null)
+                        {
+                            iv.Produto = p;
+                            Console.WriteLine("Digite a quantidade do produto: ");
+                            iv.Quantidade = Convert.ToInt32(Console.ReadLine());
+                            iv.Preco = p.Preco;
+                            venda.Itens.Add(iv);
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nEsse produto não existe!!!");
+                        }
+                        Console.WriteLine("Deseja adicionar mais produtos? S/N");
+                    } while (Console.ReadLine().ToUpper().Equals("S"));
+                    VendaDAO.Cadastrar(venda);
+                    Console.WriteLine("\nVenda cadastrada com sucesso!!!");
                 }
                 else
                 {
