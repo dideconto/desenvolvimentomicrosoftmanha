@@ -1,0 +1,13 @@
+﻿PASSO A PASSO - ENTITY FRAMEWORK CORE SQL SERVER - CODE FIRST
+
+[x] Instalar o pacote → Microsoft.EntityFrameworkCore.SqlServer;
+[x] Instalar o pacote → Microsoft.EntityFrameworkCore.Tools;
+[x] Linha de comando → Install-Package NomeBiblioteca -Project: NomeProjeto
+[x] Criar as classes de modelo;
+[x] Criar uma classe que represente o EntityFramework no projeto (Context);
+[x] Mapear as classes de modelo que vão virar tabelas no banco de dados;
+[x] Configurar a string de conexão com o banco de dados;
+[x] Toda vez que houver alteração na estrutura do banco de dados, será necessário
+criar uma nova migração → Add-Migration NomeMigracao -Project:BancoDados
+[x] Para executar uma migração, é necessário rodar o 
+comando → Update-Database -verbose -Project:BancoDados
