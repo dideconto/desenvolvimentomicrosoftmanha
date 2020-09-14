@@ -1,6 +1,6 @@
-﻿using BancoDados.Models;
+﻿using BancoDados.DAL;
+using BancoDados.Models;
 using System;
-using System.Linq;
 
 namespace BancoDados.Views
 {
@@ -8,22 +8,14 @@ namespace BancoDados.Views
     {
         public static void Renderizar()
         {
-            Context ctx = new Context();
-            Pessoa pessoa = new Pessoa
-            {
-                Nome = "Maria Ribeiro",
-                Email = "maria@maria.com"
-            };
-
-            ctx.Pessoas.Add(pessoa);
-            ctx.SaveChanges();
-
+            Pessoa pessoa = new Pessoa();
+            Console.WriteLine(" --- CADASTRAR PESSOA --- \n");
+            Console.WriteLine("Digite o nome da pessoa:");
+            pessoa.Nome = Console.ReadLine();
+            Console.WriteLine("Digite o e-mail da pessoa:");
+            pessoa.Email = Console.ReadLine();
+            PessoaDAO.Cadastrar(pessoa);
             Console.WriteLine("Pessoa cadastrada com sucesso!!!");
-
-            foreach (Pessoa pessoaCadastrado in ctx.Pessoas.ToList())
-            {
-                Console.WriteLine(pessoaCadastrado);
-            }
         }
     }
 }
