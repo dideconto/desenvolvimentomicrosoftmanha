@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Vendas WPF" Height="450" Width="800" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
-        <Menu Height="19" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
+        <Menu Height="20" Padding="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800">
             <MenuItem Header="_Arquivo">
                 <MenuItem x:Name="menuSair" Header="_Sair" Click="menuSair_Click"/>
             </MenuItem>
             <MenuItem Header="_Cadastrar">
-                <MenuItem x:Name="menuCadastrarCliente" Header="C_liente" Click="menuCadastrarCliente_Click"/>
+                <MenuItem x:Name="menuCadastrarProduto" Header="_Produto" Click="menuCadastrarProduto_Click"/>
             </MenuItem>
             <MenuItem Header="_Sobre"/>
         </Menu>

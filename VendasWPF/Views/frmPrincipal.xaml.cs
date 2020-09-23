@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using VendasWPF.Models;
 
 namespace VendasWPF.Views
 {
@@ -10,6 +11,7 @@ namespace VendasWPF.Views
         public frmPrincipal()
         {
             InitializeComponent();
+            Cliente cliente = new Cliente();
         }
 
         private void menuSair_Click(object sender, RoutedEventArgs e)
@@ -26,9 +28,9 @@ namespace VendasWPF.Views
             }
         }
 
-        private void menuCadastrarCliente_Click(object sender, RoutedEventArgs e)
+        private void menuCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            frmCadastrarCliente frm = new frmCadastrarCliente();
+            frmCadastrarProduto frm = new frmCadastrarProduto();
             frm.ShowDialog();
         }
     }
