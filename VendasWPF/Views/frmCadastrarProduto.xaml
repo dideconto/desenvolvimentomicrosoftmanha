@@ -5,21 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendasWPF.Views"
         mc:Ignorable="d"
-        Title="Cadastrar Produto" Height="305" Width="413" WindowStartupLocation="CenterScreen" Padding="10,10,10,10" FontSize="16" FontWeight="Medium">
+        Title="Cadastrar Produto" Height="292" Width="430" WindowStartupLocation="CenterScreen" Padding="10,10,10,10" FontSize="16" FontWeight="Medium">
     <Grid>
-        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Margin="114,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" TabIndex="2"/>
-        <TextBox x:Name="txtCriadoEm" HorizontalAlignment="Left" Margin="114,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" IsEnabled="False"/>
-        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="281,225,0,0" VerticalAlignment="Top" Height="38" Width="104" Click="btnCadastrar_Click" ScrollViewer.CanContentScroll="True" TabIndex="3" SnapsToDevicePixels="True"/>
+        <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Margin="114,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" TabIndex="2"/>
+        <TextBox x:Name="txtCriadoEm" HorizontalAlignment="Left" Margin="114,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" IsEnabled="False"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="329,225,0,0" VerticalAlignment="Top" Height="29" Width="75" Click="btnCadastrar_Click" ScrollViewer.CanContentScroll="True" TabIndex="3" SnapsToDevicePixels="True"/>
         <Label Content="Cadastrar Produto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Id:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top"/>
         <Label Content="Preço:" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
         <Label Content="Quantidade:" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top"/>
         <Label Content="Criado em:" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPreco" HorizontalAlignment="Left" Margin="114,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" TabIndex="1"/>
-        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="114,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" TabIndex="0"/>
+        <TextBox x:Name="txtPreco" HorizontalAlignment="Left" Margin="114,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" TabIndex="1"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Margin="114,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" TabIndex="0"/>
         <TextBox x:Name="txtId" HorizontalAlignment="Left" Margin="114,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" IsEnabled="False"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="172,225,0,0" VerticalAlignment="Top" Height="38" Width="104" ScrollViewer.CanContentScroll="True" TabIndex="3" SnapsToDevicePixels="True" Click="btnBuscar_Click"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="250,225,0,0" VerticalAlignment="Top" Height="29" Width="75" ScrollViewer.CanContentScroll="True" TabIndex="3" SnapsToDevicePixels="True" Click="btnBuscar_Click"/>
+        <Button x:Name="btnLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="170,225,0,0" VerticalAlignment="Top" Height="29" Width="75" ScrollViewer.CanContentScroll="True" TabIndex="4" SnapsToDevicePixels="True" Click="btnLimpar_Click"/>
+        <Button x:Name="btnRemover" Content="Remover" HorizontalAlignment="Left" Margin="90,225,0,0" VerticalAlignment="Top" Height="29" Width="75" ScrollViewer.CanContentScroll="True" TabIndex="5" SnapsToDevicePixels="True" Click="btnRemover_Click" IsEnabled="False"/>
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="29" Width="75" ScrollViewer.CanContentScroll="True" TabIndex="5" SnapsToDevicePixels="True" IsEnabled="False" Click="btnAlterar_Click"/>
 
 
     </Grid>
