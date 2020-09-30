@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendasWPF.Views"
         mc:Ignorable="d"
-        Title="Cadastrar Venda" Height="522" Width="420" WindowStartupLocation="CenterScreen" FontSize="16" FontWeight="Medium" Loaded="Window_Loaded">
+        Title="Cadastrar Venda" Height="537" Width="420" WindowStartupLocation="CenterScreen" FontSize="16" FontWeight="Medium" Loaded="Window_Loaded">
     <Grid>
         <Label Content="Cadastrar Venda" FontSize="18" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Cliente" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
@@ -17,12 +17,20 @@
         <TextBox x:Name="txtQuantidade" HorizontalAlignment="Left" Margin="206,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="27"/>
         <Label Content="Quantidade" HorizontalAlignment="Left" Margin="206,121,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAdicionar" Content="Adicionar" HorizontalAlignment="Left" Margin="315,157,0,0" VerticalAlignment="Top" Height="27" Width="82" Click="Button_Click"/>
-        <DataGrid x:Name="dtaProdutos" HorizontalAlignment="Left" Height="219" Margin="10,203,0,0" VerticalAlignment="Top" Width="387">
+        <DataGrid x:Name="dtaProdutos" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="219" Margin="10,203,0,0" VerticalAlignment="Top" Width="387">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nome" Width="1*"/>
-                <DataGridTextColumn Header="Subtotal" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Nome}" 
+                                    Header="Nome" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Quantidade}" 
+                                    Header="Quantidade" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Preco}" 
+                                    Header="Preço" Width="1*"/>
+                <DataGridTextColumn Binding="{Binding Subtotal}" 
+                                    Header="Subtotal" Width="1*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label x:Name="lblTotal" Content="Total: " HorizontalAlignment="Left" Margin="10,465,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="SemiBold"/>
+        <Button x:Name="btnCadastrar" Content="Gravar" HorizontalAlignment="Left" Margin="334,465,0,0" VerticalAlignment="Top" Height="28" Width="63" Click="btnCadastrar_Click"/>
 
     </Grid>
 </Window>
