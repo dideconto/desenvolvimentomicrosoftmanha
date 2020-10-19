@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VendasWeb.Models;
 
 namespace VendasWeb.Controllers
 {
     public class ProdutoController : Controller
     {
-        public IActionResult Index()
+        private readonly Context _context;
+        public ProdutoController(Context context)
         {
-            return View();
+            _context = context;
+        }
+        public IActionResult Index() => View();
+        public IActionResult Cadastrar() => View();
+        [HttpPost]
+        public IActionResult Cadastrar(string txtNome, int txtQuantidade,
+            double txtPreco, string txtDescricao)
+        {
+            return RedirectToAction("Index", "Produto");
         }
     }
 }

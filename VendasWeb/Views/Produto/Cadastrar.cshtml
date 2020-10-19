@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastrar Produto</title>
+</head>
+<body>
+    <form asp-action="Cadastrar" asp-controller="Produto" method="post">
+        <fieldset>
+            <legend>Cadastrar Produto</legend>
+            <label for="txtNome">Nome:</label>
+            <input name="txtNome" type="text" placeholder="Nome do produto" /><br />
+
+            <label for="txtDescricao">Descrição:</label>
+            <input name="txtDescricao" type="text" placeholder="Descrição do produto" /><br />
+
+            <label for="txtPreco">Preço:</label>
+            <input name="txtPreco" type="text" placeholder="Preço do produto" /><br />
+
+            <label for="txtQuantidade">Quantidade:</label>
+            <input name="txtQuantidade" type="text" placeholder="Quantidade do produto" /><br />
+
+            <input type="submit" value="Cadastrar" />
+        </fieldset>
+    </form>
+</body>
+</html>
