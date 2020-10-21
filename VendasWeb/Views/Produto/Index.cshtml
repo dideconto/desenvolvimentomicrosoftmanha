@@ -1,4 +1,6 @@
 ﻿@*Tecnlogia de View - Razor*@
+@{ List<Produto> produtos = ViewBag.Produtos;
+    int quantidade = ViewBag.Quantidade; }
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +8,42 @@
 </head>
 <body>
     <h2>Gerenciamento de Produtos</h2>
-    <a asp-action="Cadastrar" asp-controller="Produto">
-        Cadastrar Produto
-    </a>
+    <a asp-action="Cadastrar" asp-controller="Produto">Cadastrar Produto </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Criado em</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Produto produtoCadastrado in produtos)
+            {
+<tr>
+    <td>@produtoCadastrado.Id</td>
+    <td>@produtoCadastrado.Nome</td>
+    <td>@produtoCadastrado.Descricao</td>
+    <td>@produtoCadastrado.Quantidade</td>
+    <td>@produtoCadastrado.Preco.ToString("C2")</td>
+    <td>@produtoCadastrado.CriadoEm</td>
+    <td>
+        <a asp-action="Remover" asp-controller="Produto"
+           asp-route-id="@produtoCadastrado.Id">
+            Remover
+        </a>
+    </td>
+</tr>
+            }
+        </tbody>
+    </table>
+
+    <p><b>Quantidade de registros: </b> @quantidade</p>
+    <p><b>Atualizado em: </b> @DateTime.Now </p>
 </body>
 </html>
