@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
+using VendasWeb.DAL;
 using VendasWeb.Models;
 
 namespace VendasWeb.Controllers
 {
     public class ProdutoController : Controller
     {
-        private readonly Context _context;
-        public ProdutoController(Context context) => _context = context;
+        private readonly ProdutoDAO _produtoDAO;
+        public ProdutoController(ProdutoDAO produtoDAO) => _produtoDAO = produtoDAO;
         public IActionResult Index()
         {
-            List<Produto> produtos = _context.Produtos.ToList();
+            List<Produto> produtos = _produtoDAO.Listar();
             ViewBag.Produtos = produtos;
             ViewBag.Quantidade = produtos.Count;
             return View();
         }
         public IActionResult Cadastrar() => View();
+
         [HttpPost]
         public IActionResult Cadastrar(string txtNome, int txtQuantidade, double txtPreco, string txtDescricao)
         {
@@ -27,14 +28,33 @@ namespace VendasWeb.Controllers
                 Preco = txtPreco,
                 Quantidade = txtQuantidade
             };
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            _produtoDAO.Cadastrar(produto);
             return RedirectToAction("Index", "Produto");
         }
 
         public IActionResult Remover(int id)
         {
-            //Completar com o código da remoção
+            _produtoDAO.Remover(id);
+            return RedirectToAction("Index", "Produto");
+        }
+        public IActionResult Alterar(int id)
+        {
+            ViewBag.Produto = _produtoDAO.BuscarPorId(id);
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(int txtId, int hdnId,
+            string txtNome, int txtQuantidade, double txtPreco, string txtDescricao)
+        {
+            Produto produto = _produtoDAO.BuscarPorId(txtId);
+
+            produto.Nome = txtNome;
+            produto.Descricao = txtDescricao;
+            produto.Preco = txtPreco;
+            produto.Quantidade = txtQuantidade;
+
+            _produtoDAO.Alterar(produto);
             return RedirectToAction("Index", "Produto");
         }
     }
