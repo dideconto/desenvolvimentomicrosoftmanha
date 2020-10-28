@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model Produto
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -9,17 +11,24 @@
     <form asp-action="Cadastrar" asp-controller="Produto" method="post">
         <fieldset>
             <legend>Cadastrar Produto</legend>
-            <label for="txtNome">Nome:</label>
-            <input name="txtNome" type="text" placeholder="Nome do produto" /><br />
 
-            <label for="txtDescricao">Descrição:</label>
-            <input name="txtDescricao" type="text" placeholder="Descrição do produto" /><br />
+            <div asp-validation-summary="ModelOnly"></div>
 
-            <label for="txtPreco">Preço:</label>
-            <input name="txtPreco" type="text" placeholder="Preço do produto" /><br />
+            <label asp-for="Nome">Nome:</label>
+            <input asp-for="Nome" type="text" placeholder="Nome do produto" /><br />
+            <span asp-validation-for="Nome"></span><br />
 
-            <label for="txtQuantidade">Quantidade:</label>
-            <input name="txtQuantidade" type="text" placeholder="Quantidade do produto" /><br />
+            <label asp-for="Descricao">Descrição:</label>
+            <input asp-for="Descricao" type="text" placeholder="Descrição do produto" /><br />
+            <span asp-validation-for="Descricao"></span><br />
+
+            <label asp-for="Preco">Preço:</label>
+            <input asp-for="Preco" type="text" placeholder="Preço do produto" /><br />
+            <span asp-validation-for="Preco"></span><br />
+
+            <label asp-for="Quantidade">Quantidade:</label>
+            <input asp-for="Quantidade" type="text" placeholder="Quantidade do produto" /><br />
+            <span asp-validation-for="Quantidade"></span><br />
 
             <input type="submit" value="Cadastrar" />
         </fieldset>

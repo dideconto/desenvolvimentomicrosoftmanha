@@ -1,4 +1,4 @@
-﻿@{ Produto produto = ViewBag.Produto; }
+﻿@model Produto
 <!DOCTYPE html>
 
 <html>
@@ -10,21 +10,21 @@
     <form asp-action="Alterar" asp-controller="Produto" method="post">
         <fieldset>
             <legend>Alterar Produto</legend>
-            <label for="txtId">Id:</label>
-            <input value="@produto.Id" name="txtId" readonly type="text" placeholder="Id do produto" /><br />
-            <input value="@produto.Id" name="hdnId" type="hidden" />
+            <label asp-for="Id">Id:</label>
+            <input asp-for="Id" readonly type="text" placeholder="Id do produto" /><br />
+            <input asp-for="Id" name="hdnId" type="hidden" />
 
-            <label for="txtNome">Nome:</label>
-            <input value="@produto.Nome" name="txtNome" type="text" placeholder="Nome do produto" /><br />
+            <label asp-for="Nome">Nome:</label>
+            <input asp-for="Nome" type="text" placeholder="Nome do produto" /><br />
 
-            <label for="txtDescricao">Descrição:</label>
-            <input value="@produto.Descricao" name="txtDescricao" type="text" placeholder="Descrição do produto" /><br />
+            <label asp-for="Descricao">Descrição:</label>
+            <input asp-for="Descricao" type="text" placeholder="Descrição do produto" /><br />
 
-            <label for="txtPreco">Preço:</label>
-            <input value="@produto.Preco" name="txtPreco" type="text" placeholder="Preço do produto" /><br />
+            <label asp-for="Preco">Preço:</label>
+            <input asp-for="Preco" type="text" placeholder="Preço do produto" /><br />
 
-            <label for="txtQuantidade">Quantidade:</label>
-            <input value="@produto.Quantidade" name="txtQuantidade" type="text" placeholder="Quantidade do produto" /><br />
+            <label asp-for="Quantidade">Quantidade:</label>
+            <input asp-for="Quantidade" type="text" placeholder="Quantidade do produto" /><br />
 
             <input type="submit" value="Salvar" />
         </fieldset>
