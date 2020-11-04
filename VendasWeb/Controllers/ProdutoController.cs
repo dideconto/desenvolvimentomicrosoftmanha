@@ -5,6 +5,9 @@ using VendasWeb.Models;
 
 namespace VendasWeb.Controllers
 {
+    //https://getbootstrap.com/
+    //https://bootswatch.com/
+    //https://www.w3schools.com/bootstrap4/default.asp
     public class ProdutoController : Controller
     {
         private readonly ProdutoDAO _produtoDAO;
@@ -13,9 +16,14 @@ namespace VendasWeb.Controllers
         {
             List<Produto> produtos = _produtoDAO.Listar();
             ViewBag.Quantidade = produtos.Count;
+            ViewBag.Title = "Gerenciamento de Produtos";
             return View(produtos);
         }
-        public IActionResult Cadastrar() => View();
+        public IActionResult Cadastrar()
+        {
+            ViewBag.Title = "Cadastrar Produto";
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Cadastrar(Produto produto)
