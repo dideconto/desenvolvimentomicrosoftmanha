@@ -2,8 +2,7 @@
 
 @model List<Produto>
 
-@{ Layout = "~/Views/Shared/_Layout.cshtml";
-    int quantidade = ViewBag.Quantidade; }
+@{ int quantidade = ViewBag.Quantidade; }
 
 
 <h3 class="espacamento-baixo">Gerenciamento de Produtos</h3>
@@ -22,6 +21,7 @@
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Preço</th>
+            <th>Imagem</th>
             <th>Criado em</th>
             <th></th>
             <th></th>
@@ -36,6 +36,10 @@
     <td>@produtoCadastrado.Descricao</td>
     <td>@produtoCadastrado.Quantidade</td>
     <td>@produtoCadastrado.Preco.ToString("C2")</td>
+    <td>
+        <img src="~/images/@produtoCadastrado.Imagem"
+             alt="@produtoCadastrado.Descricao" style="width:120px; height:100px" />
+    </td>
     <td>@produtoCadastrado.CriadoEm</td>
     <td>
         <a asp-action="Remover" asp-controller="Produto"
@@ -49,8 +53,7 @@
             Alterar
         </a>
     </td>
-</tr>
-}
+</tr>}
     </tbody>
 </table>
 
