@@ -53,7 +53,7 @@ namespace VendasWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,Id,CriadoEm")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("Nome,Descricao,Id,CriadoEm")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace VendasWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Nome,Id,CriadoEm")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("Nome,Descricao,Id,CriadoEm")] Categoria categoria)
         {
             if (id != categoria.Id)
             {

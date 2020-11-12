@@ -22,6 +22,7 @@
             <th>Quantidade</th>
             <th>Preço</th>
             <th>Imagem</th>
+            <th>Categoria</th>
             <th>Criado em</th>
             <th></th>
             <th></th>
@@ -40,6 +41,9 @@
         <img src="~/images/@produtoCadastrado.Imagem"
              alt="@produtoCadastrado.Descricao" style="width:120px; height:100px" />
     </td>
+    <td>
+        @produtoCadastrado.Categoria.Nome
+    </td>
     <td>@produtoCadastrado.CriadoEm</td>
     <td>
         <a asp-action="Remover" asp-controller="Produto"
@@ -53,7 +57,8 @@
             Alterar
         </a>
     </td>
-</tr>}
+</tr>
+}
     </tbody>
 </table>
 
