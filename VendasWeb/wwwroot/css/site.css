@@ -18,3 +18,17 @@
     margin-top: 30px;
     text-align: center;
 }
+
+.div-produtos {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.div-categorias {
+    margin: 16px 0px;
+    text-align: center;
+}
+
+.link-categoria {
+    margin-right: 8px;
+}

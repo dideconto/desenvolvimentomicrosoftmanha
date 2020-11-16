@@ -1,0 +1,23 @@
+﻿@model List<Produto>
+
+@{ List<Categoria> categorias = ViewBag.Categorias; }
+
+<div id="categorias" class="div-categorias">
+    @foreach (Categoria categoriaCadastrada in categorias)
+    {
+<a class="link-categoria"
+   asp-controller="Home"
+   asp-action="Index"
+   asp-route-id="@categoriaCadastrada.Id"> @categoriaCadastrada.Nome </a>}
+</div>
+
+<div id="produtos" class="row">
+    @foreach (Produto produtoCadastrado in Model)
+    {
+<div class="col-sm-3 div-produtos">
+    <img class="img-thumbnail" src="~/images/@produtoCadastrado.Imagem"
+         alt="@produtoCadastrado.Descricao" style="width:120px; height:100px" /><br />
+    <span>@produtoCadastrado.Nome</span><br />
+    <span><b class="font-weight-bolder">Preço: </b> @produtoCadastrado.Preco.ToString("C2")</span>
+</div>}
+</div>

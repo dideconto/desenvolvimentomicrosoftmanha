@@ -9,14 +9,13 @@ namespace VendasWeb.DAL
     {
         private readonly Context _context;
         public ProdutoDAO(Context context) => _context = context;
+        public List<Produto> ListarPorCategoria(int id) =>
+            _context.Produtos.Where(x => x.CategoriaId == id).ToList();
         public List<Produto> Listar() =>
             _context.Produtos.
             Include(x => x.Categoria).
             ToList();
         public Produto BuscarPorId(int id) => _context.Produtos.Find(id);
-
-        public List<Produto> BuscarPorCategoria(int id) =>
-            _context.Produtos.Where(x => x.CategoriaId == id).ToList();
 
         public Produto BuscarPorNome(string nome) =>
             _context.Produtos.FirstOrDefault(x => x.Nome == nome);
