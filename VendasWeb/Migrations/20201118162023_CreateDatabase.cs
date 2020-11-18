@@ -47,6 +47,34 @@ namespace VendasWeb.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ItensVenda",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CriadoEm = table.Column<DateTime>(nullable: false),
+                    ProdutoId = table.Column<int>(nullable: false),
+                    Quantidade = table.Column<int>(nullable: false),
+                    Preco = table.Column<double>(nullable: false),
+                    CarrinhoId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItensVenda", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItensVenda_Produtos_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produtos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItensVenda_ProdutoId",
+                table: "ItensVenda",
+                column: "ProdutoId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Produtos_CategoriaId",
                 table: "Produtos",
@@ -55,6 +83,9 @@ namespace VendasWeb.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ItensVenda");
+
             migrationBuilder.DropTable(
                 name: "Produtos");
 

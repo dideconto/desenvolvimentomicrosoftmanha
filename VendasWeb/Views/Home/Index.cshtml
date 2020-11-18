@@ -19,5 +19,11 @@
          alt="@produtoCadastrado.Descricao" style="width:120px; height:100px" /><br />
     <span>@produtoCadastrado.Nome</span><br />
     <span><b class="font-weight-bolder">Preço: </b> @produtoCadastrado.Preco.ToString("C2")</span>
+    <br />
+    <a class="btn btn-primary" asp-action="AdicionarAoCarrinho"
+       asp-controller="Home"
+       asp-route-id="@produtoCadastrado.Id">
+        Adicionar
+    </a>
 </div>}
 </div>

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VendasWeb.DAL;
 using VendasWeb.Models;
+using VendasWeb.Utils;
 
 namespace VendasWeb
 {
@@ -23,10 +24,15 @@ namespace VendasWeb
         {
             services.AddScoped<ProdutoDAO>();
             services.AddScoped<CategoriaDAO>();
+            services.AddScoped<ItemVendaDAO>();
+            services.AddScoped<Sessao>();
+
+            services.AddHttpContextAccessor();
 
             services.AddDbContext<Context>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Connection")));
 
+            services.AddSession();
             services.AddControllersWithViews();
         }
 
@@ -46,6 +52,8 @@ namespace VendasWeb
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -40,6 +40,35 @@ namespace VendasWeb.Migrations
                     b.ToTable("Categorias");
                 });
 
+            modelBuilder.Entity("VendasWeb.Models.ItemVenda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CarrinhoId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Preco")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ItensVenda");
+                });
+
             modelBuilder.Entity("VendasWeb.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
@@ -76,6 +105,15 @@ namespace VendasWeb.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("VendasWeb.Models.ItemVenda", b =>
+                {
+                    b.HasOne("VendasWeb.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("VendasWeb.Models.Produto", b =>
