@@ -1,0 +1,12 @@
+﻿ -- PASSO A PASSO DO USO E INSTALAÇÃO DO IDENTITY -- 
+
+ 1º - Instalar a biblioteca 3.1.9 dentro do projeto - Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+ 2º - Criar uma classe que herde de IdentityUser, para aproveitar todos as propriedades
+ e métodos que a biblioteca oferece;
+
+ 3º - Configurar a ID no startup.cs;
+
+ 4º - Adicionar uma migração e atualizar o banco;
+
+ 5º - Criar um controler com as actions e views;
