@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +14,8 @@ namespace VendasWeb.Controllers
     //https://getbootstrap.com/
     //https://bootswatch.com/
     //https://www.w3schools.com/bootstrap4/default.asp
+    //[Authorize(Roles = "ADM")]
+    [Authorize]
     public class ProdutoController : Controller
     {
         private readonly ProdutoDAO _produtoDAO;
@@ -26,6 +29,7 @@ namespace VendasWeb.Controllers
             _categoriaDAO = categoriaDAO;
             _hosting = hosting;
         }
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             List<Produto> produtos = _produtoDAO.Listar();

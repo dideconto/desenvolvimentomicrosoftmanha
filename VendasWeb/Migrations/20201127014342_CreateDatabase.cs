@@ -63,6 +63,21 @@ namespace VendasWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UsuarioLogado",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CriadoEm = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    Senha = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsuarioLogado", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -285,6 +300,9 @@ namespace VendasWeb.Migrations
 
             migrationBuilder.DropTable(
                 name: "ItensVenda");
+
+            migrationBuilder.DropTable(
+                name: "UsuarioLogado");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

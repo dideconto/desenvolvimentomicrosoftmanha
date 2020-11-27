@@ -10,8 +10,8 @@ using VendasWeb.Models;
 namespace VendasWeb.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20201123134952_AddTableUsuario")]
-    partial class AddTableUsuario
+    [Migration("20201127014342_CreateDatabase")]
+    partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
