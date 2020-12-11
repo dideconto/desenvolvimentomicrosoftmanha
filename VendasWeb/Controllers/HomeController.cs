@@ -16,6 +16,7 @@ namespace VendasWeb.Controllers
         public HomeController(ProdutoDAO produtoDAO, CategoriaDAO categoriaDAO,
             ItemVendaDAO itemVendaDAO, Sessao sessao)
         {
+            //Teste
             _produtoDAO = produtoDAO;
             _categoriaDAO = categoriaDAO;
             _itemVendaDAO = itemVendaDAO;

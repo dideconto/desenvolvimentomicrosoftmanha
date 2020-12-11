@@ -37,14 +37,19 @@ namespace VendasWeb.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Email,Senha,Id,CriadoEm,ConfirmacaoSenha")] UsuarioLogado usuarioLogado)
+        public async Task<IActionResult> Create([Bind("Email,Senha,Id,CriadoEm,ConfirmacaoSenha,Cep,Logradouro,Uf,Bairro,Localidade")] UsuarioLogado usuarioLogado)
         {
             if (ModelState.IsValid)
             {
                 Usuario usuario = new Usuario
                 {
                     UserName = usuarioLogado.Email,
-                    Email = usuarioLogado.Email
+                    Email = usuarioLogado.Email,
+                    Cep = usuarioLogado.Cep,
+                    Localidade = usuarioLogado.Localidade,
+                    Logradouro = usuarioLogado.Logradouro,
+                    Uf = usuarioLogado.Uf,
+                    Bairro = usuarioLogado.Bairro,
                 };
 
                 IdentityResult result = await _userManager.CreateAsync(usuario, usuarioLogado.Senha);
